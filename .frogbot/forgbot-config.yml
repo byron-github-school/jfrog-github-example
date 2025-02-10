@@ -1,0 +1,6 @@
+- params:
+    git:
+      repoName: jfrog-github-example
+      branches:
+        - byron-test
+        - main
