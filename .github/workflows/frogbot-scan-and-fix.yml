@@ -19,7 +19,7 @@ jobs:
 
       - uses: jfrog/frogbot@7fad842cf6ba3d755c2eb86376cce066327b55d1
         env:
-          JF_URL: https://${{ vars.JF_URL }}/
+          JF_URL: ${{ vars.JF_URL }}/
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JF_PROJECT: ${{ vars.JF_PROJECT }}
