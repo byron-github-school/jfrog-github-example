@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: jfrog/frogbot@2.25.0
+      - uses: jfrog/frogbot@7fad842cf6ba3d755c2eb86376cce066327b55d1
      #   with:
      #     oidc-provider-name: "byron-juice-shop"
         env:
