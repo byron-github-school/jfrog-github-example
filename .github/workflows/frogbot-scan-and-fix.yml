@@ -11,7 +11,7 @@ jobs:
   create-fix-pull-requests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@latest
 
       - uses: jfrog/frogbot@v2
      #   with:
