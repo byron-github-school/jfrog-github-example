@@ -11,9 +11,9 @@ jobs:
   create-fix-pull-requests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.25.0
+      - uses: actions/checkout@v4
 
-      - uses: jfrog/frogbot@latest
+      - uses: jfrog/frogbot@2.25.0
      #   with:
      #     oidc-provider-name: "byron-juice-shop"
         env:
