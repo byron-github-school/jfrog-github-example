@@ -35,7 +35,7 @@ jobs:
 
       - uses: jfrog/frogbot@v2
         with:
-          oidc-provider-name: byron-juice-shop
+          oidc-provider-name: "byron-juice-shop"
         env:
           JFROG_CLI_LOG_LEVEL: DEBUG
           # [Mandatory if the two conditions below are met]
