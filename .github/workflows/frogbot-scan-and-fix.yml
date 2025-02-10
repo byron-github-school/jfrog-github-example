@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: jfrog/frogbot@v2
-        with:
-          oidc-provider-name: "byron-juice-shop"
+     #   with:
+     #     oidc-provider-name: "byron-juice-shop"
         env:
           JF_URL: https://${{ vars.JF_URL }}/
           JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
