@@ -12,8 +12,8 @@ jobs:
     build-publish-python:
         runs-on: ubuntu-latest              
         env:
-          DOCKER_REPO: 'codeninjas-proj-docker-local'
-          IMAGE_NAME: 'my-very-cool-image:${{ github.run_number }}'
+          DOCKER_REPO: 'jfrog-example'
+          IMAGE_NAME: 'jfrog-example-image:${{ github.run_number }}'
           JF_URL: ${{ vars.JF_URL }}
           DOCKER_CLI_EXPERIMENTAL: enabled
         steps:
