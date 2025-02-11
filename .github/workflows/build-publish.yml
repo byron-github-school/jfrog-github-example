@@ -48,9 +48,13 @@ jobs:
 
             - name: publish python package
               run: |
-                jf rt u dist/ codeninjas-proj-python-virtual/example-projects/ --module=jfrog-python-example
-
-      
+                jf rt u dist/ byron-py-pypi/ --module=jfrog-python-example
+            - name: Publish Build info With JFrog CLI
+              run: |
+                jf rt build-collect-env
+                jf rt build-add-git
+                jf rt build-publish
+                
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3                 
 
