@@ -24,13 +24,9 @@ jobs:
               env:
                 JF_URL: ${{ vars.JF_URL }}
                 JF_PROJECT: ${{ vars.JF_PROJECT }}
-              with:
-                  oidc-provider-name: jfrog-github-oidc
-
+                JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
             - name: Checkout the repository
               uses: actions/checkout@v4
-
-
             - name: configure jfrog environment
               run: |
                 # Use a curated repository for python dependencies resolution
