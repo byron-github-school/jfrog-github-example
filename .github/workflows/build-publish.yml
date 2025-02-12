@@ -54,7 +54,7 @@ jobs:
                 jf rt build-collect-env
                 jf rt build-add-git
                 jf rt build-publish
-                
+
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3                 
 

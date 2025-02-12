@@ -1,4 +1,4 @@
-name: Build and Tag Docker Image
+name: Byron Build and Tag Docker Image
 
 on:
   push:
