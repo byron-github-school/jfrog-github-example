@@ -27,8 +27,6 @@ jobs:
                 JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
             - name: Checkout the repository
               uses: actions/checkout@v4
-
-
             - name: configure jfrog environment
               run: |
                 # Use a curated repository for python dependencies resolution
@@ -56,7 +54,7 @@ jobs:
                 jf rt build-collect-env
                 jf rt build-add-git
                 jf rt build-publish
-      
+
             - name: Set up QEMU
               uses: docker/setup-qemu-action@v3                 
 
@@ -78,12 +76,12 @@ jobs:
               run: |  
                 docker buildx ls
                 jf docker --version
-                jf docker build --tag ${{ vars.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }} --platform linux/amd64,linux/arm64 --metadata-file  metadata.json --push .
+                jf docker build --tag ${{ vars.JF_URL_NO_HTTP }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }} --platform linux/amd64,linux/arm64 --metadata-file  metadata.json --push .
                 
             - name: docker scan
               run: |  
-                 jf docker pull ${{ vars.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
-                 jf docker scan ${{ vars.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}   
+                 jf docker pull ${{ vars.JF_URL_NO_HTTP }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}
+                 jf docker scan ${{ vars.JF_URL_NO_HTTP }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}   
             #- name: docker build
             #  run: |  
             #    jf docker build --tag ${{ vars.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}-amd64 --platform  linux/amd64 --load .
@@ -111,7 +109,7 @@ jobs:
                  echo "----------------"
                  digest=$(cat metadata.json | jq '.["containerimage.digest"]')
                  echo "digest=$digest"
-                 echo "${{ vars.JF_URL }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}@$digest" > metadata.json
+                 echo "${{ vars.JF_URL_NO_HTTP }}/${{ env.DOCKER_REPO }}/${{ env.IMAGE_NAME }}@$digest" > metadata.json
                  jf rt build-docker-create ${{ env.DOCKER_REPO }} --image-file metadata.json 
 
             - name: publish build info
