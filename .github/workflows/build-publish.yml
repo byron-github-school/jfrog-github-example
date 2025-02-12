@@ -65,7 +65,7 @@ jobs:
               with:
                 registry: ${{ vars.JF_URL }}
                 username: ${{ vars.JF_USER }}
-                password: ${{ secrets.JF_TOKEN }}
+                password: ${{ secrets.JF_ACCESS_TOKEN }}
 
             - name: Setup buildx instance
               uses: docker/setup-buildx-action@v3
